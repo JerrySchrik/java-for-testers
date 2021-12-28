@@ -1,5 +1,6 @@
 package com.serenitydojo;
 
+import com.serenitydojo.model.Feeder;
 import org.junit.Assert;
 import org.junit.Test;
 
