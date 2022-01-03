@@ -13,13 +13,10 @@ public class FileLoader {
         }
 
     public Boolean fileContainsText(String filename, String expectedText) {
+        String path = "src/main/resources/" + filename;
         try {
-            String path = "src/main/resources/" + filename;
-            Files.readString(Paths.get(path)).contains(expectedText);
-            return true;
-        } catch (NoSuchFileException noSuchFile) {
-            return false;
-        } catch (IOException otherExceptions) {
+           return Files.readString(Paths.get(path)).contains(expectedText);
+        } catch (IOException error) {
             return false;
         }
     }
