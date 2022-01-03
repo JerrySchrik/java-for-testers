@@ -23,6 +23,11 @@ public class FileLoader {
 
     public Boolean fileHasText(String filename, String expectedText) {
         String path = "src/main/resources/" + filename;
-        return null;// (Files.readString(Paths.get(path)).contains(expectedText));
+        try{
+            return (Files.readString(Paths.get(path)).contains(expectedText));
+        } catch (IOException e) {
+            throw new MissingWelcomeFileException("Missing welcome file:" + filename, e);
+        }
     }
+
 }
